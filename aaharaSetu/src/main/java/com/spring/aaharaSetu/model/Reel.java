@@ -24,7 +24,7 @@ public class Reel {
 	private String reelUrl;
 	private String reelCaption;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	@JoinColumn(name = "hotelId")
 	private Hotel hotel;
 	

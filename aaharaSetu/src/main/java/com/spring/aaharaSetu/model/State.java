@@ -21,7 +21,7 @@ public class State {
 	private long stateId;
 	private String stateName;
 	
-	@OneToMany(mappedBy = "state" , cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	@OneToMany(mappedBy = "state" , cascade = CascadeType.ALL)
 	private List<City> city;
 	
 

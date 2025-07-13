@@ -23,7 +23,7 @@ public class User {
 	private String userName;
 	
 	@OneToOne(mappedBy="user" , cascade = CascadeType.ALL)
-	private UserDetails userDeatils;
+	private UserDetails userDetails;
 	
 	@ManyToMany(mappedBy = "users" , cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Reel> reels;
