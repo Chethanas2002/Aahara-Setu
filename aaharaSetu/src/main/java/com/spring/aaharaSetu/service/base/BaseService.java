@@ -1,4 +1,4 @@
-package com.spring.aaharaSetu.service;
+package com.spring.aaharaSetu.service.base;
 
 import java.util.List;
 

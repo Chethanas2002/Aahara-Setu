@@ -1,6 +1,5 @@
-package com.spring.aaharaSetu.service;
+package com.spring.aaharaSetu.service.base;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
