@@ -2,11 +2,7 @@ package com.spring.aaharaSetu.model;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +16,8 @@ public class User {
 	
 	@Id
 	private long userId;
+
+	@Column(unique = true)
 	private String userName;
 	
 	@OneToOne(mappedBy="user" , cascade = CascadeType.ALL)
