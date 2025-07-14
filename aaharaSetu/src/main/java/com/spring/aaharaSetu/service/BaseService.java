@@ -2,6 +2,16 @@ package com.spring.aaharaSetu.service;
 
 import java.util.List;
 
+/***
+ *
+ * @param <T>
+ * @param <ID>
+ *
+ *    Introduces a generic BaseService interface with methods for
+ *    adding, retrieving, and deleting entities by ID.
+ *    This provides a reusable contract for service layer implementations.
+ */
+
 public interface BaseService <T, ID> {
 
     // To add single entity
@@ -18,8 +28,4 @@ public interface BaseService <T, ID> {
 
     // To delete by ID
     T deleteById(ID id);
-
-
-
-
 }
