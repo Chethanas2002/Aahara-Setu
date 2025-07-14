@@ -18,7 +18,7 @@ public interface BaseService <T, ID> {
     T addEntity(T entity);
 
     // To add many entity
-    T addAllEntities(List<T> entities);
+    String addAllEntities(List<T> entities);
 
     // To get all the entity in the table
     List<T> getAllEntity();
@@ -27,5 +27,5 @@ public interface BaseService <T, ID> {
     T getById(ID id);
 
     // To delete by ID
-    T deleteById(ID id);
+    String deleteById(ID id);
 }
