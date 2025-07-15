@@ -10,7 +10,7 @@ import java.util.List;
 public class BaseController<T, ID> {
 
     BaseServiceImp<T, ID> service;
-    BaseController (BaseServiceImp<T, ID> service){
+    protected BaseController(BaseServiceImp<T, ID> service){
         this.service = service;
     }
 

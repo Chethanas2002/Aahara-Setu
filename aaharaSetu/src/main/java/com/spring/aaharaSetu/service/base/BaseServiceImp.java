@@ -1,7 +1,7 @@
 package com.spring.aaharaSetu.service.base;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -18,8 +18,7 @@ import java.util.List;
  *     TODO:
  *      Exception handling !
  */
-
-@Service
+@NoArgsConstructor
 public class BaseServiceImp<T, ID> implements BaseService<T, ID> {
 
     JpaRepository<T, ID> repo;
