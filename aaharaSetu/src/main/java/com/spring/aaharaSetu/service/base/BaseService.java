@@ -14,10 +14,10 @@ import java.util.List;
 
 public interface BaseService <T, ID> {
 
-    // To add single entity
+    // To add a single entity
     T addEntity(T entity);
 
-    // To add many entity
+    // To add many entities
     String addAllEntities(List<T> entities);
 
     // To get all the entity in the table

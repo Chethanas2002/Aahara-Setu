@@ -4,9 +4,11 @@ import com.spring.aaharaSetu.controller.base.BaseController;
 import com.spring.aaharaSetu.model.City;
 import com.spring.aaharaSetu.service.CityService;
 import com.spring.aaharaSetu.service.base.BaseServiceImp;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/city")
 class CityController extends BaseController<City, Integer> {
 
     CityService cityService;

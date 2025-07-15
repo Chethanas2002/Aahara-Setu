@@ -4,9 +4,11 @@ import com.spring.aaharaSetu.controller.base.BaseController;
 import com.spring.aaharaSetu.model.Hotel;
 import com.spring.aaharaSetu.service.HotelService;
 import com.spring.aaharaSetu.service.base.BaseServiceImp;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/hotel")
 class HotelController extends BaseController<Hotel, Integer> {
 
     HotelService hotelService;
