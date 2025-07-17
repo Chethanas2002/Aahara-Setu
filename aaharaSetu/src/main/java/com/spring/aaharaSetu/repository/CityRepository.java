@@ -14,23 +14,26 @@ import com.spring.aaharaSetu.model.City;
 public interface CityRepository extends JpaRepository<City, Long>{
 
 //	Get city by name
-	City findByCityName(String name);
+	@Query("SELECT c FROM City c" +
+			"WHERE LOWER(c.cityName) = LOWER(:cityName)")
+	List<City> findByCityNameExactMatch(String cityName);
 	
-//	Get city by name partial match and case insensitive 
-	List<City> findByCityNameContainingIgnoreCase(String name);
+//	Get city by name partial match and case-insensitive
+	@Query("SELECT c FROM City c" +
+			"WHERE LOWER(c.cityName) LIKE LOWER(CONCAT('%', :cityName, '%'))")
+	List<City> findByCityNamePartialMatch(String cityName);
 	
 //	Gets all the city ordered in ascending order of city name
 	List<City> findAllByOrderByCityNameAsc();
 	
-//	Get cities based on specific state exact match and case insensitive
-//	List<City> findByState_StateNameIgnoreCase(String name);
+//	Get cities based on specific state exact match and case-insensitive
 	@Query("SELECT c FROM City c "+
 	       "JOIN c.state s "+
 		   "WHERE LOWER(s.stateName) = LOWER(:stateName)")
 	List<City> searchCitiesByState(@Param("stateName") String stateName);
 	
 	
-//	Get cities based on specific state exact match and case insensitive
+//	Get cities based on specific state exact match and case-insensitive
 //	List<City> findByState_StateNameContainingIgnoreCase(String name);
 	@Query("SELECT c FROM City c "+
 			"JOIN c.state s "+
