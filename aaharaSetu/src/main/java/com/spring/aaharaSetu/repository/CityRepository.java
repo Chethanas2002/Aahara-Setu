@@ -23,16 +23,16 @@ public interface CityRepository extends JpaRepository<City, Long>{
 			"WHERE LOWER(c.cityName) LIKE LOWER(CONCAT('%', :cityName, '%'))")
 	List<City> findByCityNamePartialMatch(String cityName);
 	
-//	Gets all the city ordered in ascending order of city name
-	List<City> findAllByOrderByCityNameAsc();
-	
+
+// TODO: Its better to query state id from the sate repo and then send the id to get all the cities.
 //	Get cities based on specific state exact match and case-insensitive
 	@Query("SELECT c FROM City c "+
 	       "JOIN c.state s "+
 		   "WHERE LOWER(s.stateName) = LOWER(:stateName)")
 	List<City> searchCitiesByState(@Param("stateName") String stateName);
 	
-	
+
+// TODO: Dont think this is useful !!
 //	Get cities based on specific state exact match and case-insensitive
 //	List<City> findByState_StateNameContainingIgnoreCase(String name);
 	@Query("SELECT c FROM City c "+
