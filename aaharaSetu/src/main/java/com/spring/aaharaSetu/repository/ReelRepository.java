@@ -19,7 +19,7 @@ public interface ReelRepository extends JpaRepository<Reel, Long> {
 	       "LOWER(r.reelCaption) LIKE LOWER(CONCAT('%',:captionKeyword,'%')")
 	List<Reel> searchByReelCaption(@Param("captionKeyword") String captionKeyword);
 	
-	
+// TODO: We need to create a hash function for querying reels url
 //	Searches the reel by the url Partial Match
 	@Query("SELECT r FROM Reel r WHERE "+
 	       "LOWER(r.reelUrl) LIKE LOWER(CONCAT('%',:url , '%'))")
@@ -41,8 +41,8 @@ public interface ReelRepository extends JpaRepository<Reel, Long> {
 	
 //	Searches the reel by the user name Partial Match
 	@Query("SELECT r FROM Reel r "+
-		   "JOIN r.users u WHERE "+
-		   "LOWER(u.userName) LIKE LOWER(CONCAT('%',:name,'%'))")
+		   "JOIN r.users u " +
+			"WHERE LOWER(u.userName) LIKE LOWER(CONCAT('%',:name,'%'))")
 	List<Reel> searchReelByUserName(@Param("name") String name);
 	
 	

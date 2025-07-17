@@ -20,29 +20,30 @@ public interface HotelRepository extends JpaRepository<Hotel, Long>{
 	
 	
 // Search by hotel name partial match
-	@Query("SELECT h FROM Hotel h WHERE " +
-			"LOWER(h.hotelName) = LOWER(:keyword)")
+	@Query("SELECT h FROM Hotel h " +
+			"WHERE LOWER(h.hotelName) = LOWER(:keyword)")
 	List<Hotel> searchByHotelNameExactMatch(@Param("keyword") String keyword);
 	
 	
 // Search by latitude and longitude exact match
-	@Query("SELECT h FROM Hotel h WHERE "+
-           "h.latitude = :latitude AND "+
-		   "h.longitude = :longitude")
+	@Query("SELECT h FROM Hotel h " +
+			"WHERE h.latitude = :latitude " +
+			"AND h.longitude = :longitude")
 	List<Hotel> searchHotelByLatitudeAndLongitude(@Param("latitude") double latitude ,
 			                                    @Param("longitude") double longitude);
 	
 	
 //	Getting all the hotels in a specific city by city id
 	@Query("SELECT h FROM Hotel h "+
-           "JOIN h.city c WHERE c.cityId = :id")
+           "JOIN h.city c " +
+			"WHERE c.cityId = :id")
 	List<Hotel> getHotelsByCityId(@Param("id") long id);
 	
 	
 //	Getting all the hotels in a specific city by city name exact match
 	@Query("SELECT h FROM Hotel h "+
-		   "JOIN h.city c WHERE "+
-		   "LOWER(c.cityName) = LOWER(:name)")
+		   "JOIN h.city c " +
+			"WHERE LOWER(c.cityName) = LOWER(:name)")
 	List<Hotel> getHotelsByCityName(@Param("name") String name);
 	
 	
